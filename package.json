@@ -1,0 +1,29 @@
+{
+  "name": "generic",
+  "version": "1.0.0",
+  "description": "A project to practice angular.js coded from scratch",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ajc388/AngularNode.git"
+  },
+  "keywords": [
+    "Node",
+    "Angular",
+    "Educational",
+    "Ajax",
+    "MongoDB",
+    "MEAN"
+  ],
+  "author": "ajc388",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajc388/AngularNode/issues"
+  },
+  "homepage": "https://github.com/ajc388/AngularNode#readme"
+}
