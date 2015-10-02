@@ -1,12 +1,3 @@
-
-
-    HTML Result 
-
-Edit on
-
-  
-  
-  
 <html>
 <head>
   <title>Hello World in AngularJS</title>
@@ -14,6 +5,7 @@ Edit on
 </head>
 <body data-ng-app="app">
 	<div>
+		<h2>P1: Hello Angular</h2>
 		<!--Does basic data binding from the input box model-->
 		<span><input ng-model="name" placeholder="Type world..."></span>
 		<span> Hello {{name}} </span>
@@ -22,6 +14,7 @@ Edit on
 	<br/>
 
 	<div>
+		<h2>P2: Directives</h2>
 		<hello>Element</hello> Element
 		<div data-hello>Attribute</div> data-Attribute
 		<div hello>Attribute</div> Attribute
@@ -44,6 +37,31 @@ Edit on
 		</script>
 	</div>
 
+	<!-- This section is defined as a controller -->
+	<div ng-controller="TodoController">
+		<h2>P3: Ang Controllers</h2>
+		<ul>
+		  <li ng-repeat="todo in todos">	<!--Designates a foreach loop with todos and todo-->
+		    <input type="checkbox" ng-model="todo.completed"> <!-- describes the checkbox as the model; note the todo item of our effective for each-->
+		    {{ todo.name }}
+		  </li>
+		</ul>
 
+		<script>
+		  /*Function defines what the controller is supposed to do.
+		    It will has the same name as the ng-controller and accepts a special variable called scope.
+		    Scope is given a special attribute which represents the whole list in our ng-repeat foreach statement.*/
+		  function TodoController($scope){
+		    $scope.todos = [
+		      { name: 'Master HTML/CSS/Javascript', completed: true },
+		      { name: 'Learn AngularJS', completed: false },
+		      { name: 'Build NodeJS backend', completed: false },
+		      { name: 'Get started with ExpressJS', completed: false },
+		      { name: 'Setup MongoDB database', completed: false },
+		      { name: 'Be awesome!', completed: false },
+		    ]
+		  }
+		</script>
+	</div>
 </body>
 </html>
