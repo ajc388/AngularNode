@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Hello World in AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+</head>
+<body ng-app>
+	<!-- This section is defined as a controller -->
+	<div>
+		<div ng-controller="TodoController">
+			<h2>P3: Ang Controllers</h2>
+			<ul>
+			  <li ng-repeat="todo in todos">	<!--Designates a foreach loop with todos and todo-->
+			    <input type="checkbox" ng-model="todo.completed"> <!-- describes the checkbox as the model; note the todo item of our effective for each-->
+			    {{ todo.name }}
+			  </li>
+			</ul>
+
+			<script>
+			  /*Function defines what the controller is supposed to do.
+			    It will has the same name as the ng-controller and accepts a special variable called scope.
+			    Scope is given a special attribute which represents the whole list in our ng-repeat foreach statement.*/
+			  function TodoController($scope){
+			    $scope.todos = [
+			      { name: 'Master HTML/CSS/Javascript', completed: true },
+			      { name: 'Learn AngularJS', completed: false },
+			      { name: 'Build NodeJS backend', completed: false },
+			      { name: 'Get started with ExpressJS', completed: false },
+			      { name: 'Setup MongoDB database', completed: false },
+			      { name: 'Be awesome!', completed: false },
+			    ]
+			  }
+			</script>
+		</div>
+	</div>
+</body>
+</html>

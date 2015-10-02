@@ -1,17 +1,15 @@
-<html>
+<html >
 <head>
   <title>Hello World in AngularJS</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 </head>
-<body data-ng-app="app">
+<body ng-app ng-app="app">
 	<div>
 		<h2>P1: Hello Angular</h2>
 		<!--Does basic data binding from the input box model-->
 		<span><input ng-model="name" placeholder="Type world..."></span>
 		<span> Hello {{name}} </span>
 	</div>
-	
-	<br/>
 
 	<div>
 		<h2>P2: Directives</h2>
@@ -38,30 +36,60 @@
 	</div>
 
 	<!-- This section is defined as a controller -->
-	<div ng-controller="TodoController">
-		<h2>P3: Ang Controllers</h2>
-		<ul>
-		  <li ng-repeat="todo in todos">	<!--Designates a foreach loop with todos and todo-->
-		    <input type="checkbox" ng-model="todo.completed"> <!-- describes the checkbox as the model; note the todo item of our effective for each-->
-		    {{ todo.name }}
-		  </li>
-		</ul>
+	<div>
+		<div ng-controller="TodoController">
+			<h2>P3: Ang Controllers</h2>
+			<ul>
+			  <li ng-repeat="todo in todos">	<!--Designates a foreach loop with todos and todo-->
+			    <input type="checkbox" ng-model="todo.completed"> <!-- describes the checkbox as the model; note the todo item of our effective for each-->
+			    {{ todo.name }}
+			  </li>
+			</ul>
 
-		<script>
-		  /*Function defines what the controller is supposed to do.
-		    It will has the same name as the ng-controller and accepts a special variable called scope.
-		    Scope is given a special attribute which represents the whole list in our ng-repeat foreach statement.*/
-		  function TodoController($scope){
-		    $scope.todos = [
-		      { name: 'Master HTML/CSS/Javascript', completed: true },
-		      { name: 'Learn AngularJS', completed: false },
-		      { name: 'Build NodeJS backend', completed: false },
-		      { name: 'Get started with ExpressJS', completed: false },
-		      { name: 'Setup MongoDB database', completed: false },
-		      { name: 'Be awesome!', completed: false },
-		    ]
-		  }
-		</script>
+			<script>
+			  /*Function defines what the controller is supposed to do.
+			    It will has the same name as the ng-controller and accepts a special variable called scope.
+			    Scope is given a special attribute which represents the whole list in our ng-repeat foreach statement.*/
+			  function TodoController($scope){
+			    $scope.todos = [
+			      { name: 'Master HTML/CSS/Javascript', completed: true },
+			      { name: 'Learn AngularJS', completed: false },
+			      { name: 'Build NodeJS backend', completed: false },
+			      { name: 'Get started with ExpressJS', completed: false },
+			      { name: 'Setup MongoDB database', completed: false },
+			      { name: 'Be awesome!', completed: false },
+			    ]
+			  }
+			</script>
+		</div>
+	</div>
+
+	<div>
+		<div ng-controller="TodoController2">
+			<h2> P4; Controller With More Modules </h2>
+			<ul>
+			  <li ng-repeat="todo in todos">
+			    <input type="checkbox" ng-model="todo.completed">
+			    {{ todo.name }}
+			  </li>
+			</ul>
+
+			<script>
+				//Wraps the function into an anonymous function with controller as the key.
+				//Helps with parallel dependency loading?
+				angular.module("app", [])
+				  .controller('TodoController2', ['$scope', function ($scope) {
+				    $scope.todos = [
+				      { name: 'Master HTML/CSS/Javascript', completed: true },
+				      { name: 'Learn AngularJS', completed: false },
+				      { name: 'Build NodeJS backend', completed: false },
+				      { name: 'Get started with ExpressJS', completed: false },
+				      { name: 'Setup MongoDB database', completed: false },
+				      { name: 'Be awesome!', completed: false },
+				    ];
+				  }]);
+			</script>
+		</div>
 	</div>
 </body>
 </html>

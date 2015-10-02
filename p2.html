@@ -1,0 +1,32 @@
+<html>
+	<head>
+	  <title>Hello World in AngularJS</title>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	</head>
+	<body ng-app="app">
+
+		<div>
+			<h2>P2: Directives</h2>
+			<hello>Element</hello> Element
+			<div data-hello>Attribute</div> data-Attribute
+			<div hello>Attribute</div> Attribute
+			<!-- directive: hello --> Comment
+			<p class="hello"></p> Class
+		
+			<script>
+				//Looks for the corresponding ng-app module which can be found in the body tag.
+				var app = angular.module('app', []);
+			  
+			 	//looks through all directives labeled hello
+			 	//if they have a class, eleemnt, comment, or attribute directive it replaces it with the template.
+				app.directive('hello', [function () {
+				  return {
+				    restrict: 'CEMA', // C: class, E: element, M: comments, A: attributes
+				    replace: true, // replaces original content with template
+				    template: '<span><br>Hello</span>'
+				  }
+				}]);
+			</script>
+		</div>
+	</body>
+</html>

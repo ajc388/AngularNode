@@ -5,10 +5,8 @@ var port = 9000;
 var app = require('express')(); //express package
 var http = require('http').Server(app); //http server package from express
 
-//Routes
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + "/index.html");
-});
+//Load in routes
+require('./routes.js')(app);
 
 //Port listener
 http.listen(port, function() {

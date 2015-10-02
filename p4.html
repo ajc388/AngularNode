@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Hello World in AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+</head>
+<body ng-app="app">
+	<div>
+		<div ng-controller="TodoController">
+			<h2> P4: Controller Using Modules </h2>
+			<ul>
+			  <li ng-repeat="todo in todos">
+			    <input type="checkbox" ng-model="todo.completed">
+			    {{ todo.name }}
+			  </li>
+			</ul>
+
+			<script>
+				//Wraps the function into an anonymous function with controller as the key.
+				//Helps with parallel dependency loading?
+				angular.module("app", [])
+				  .controller('TodoController', ['$scope', function ($scope) {
+				    $scope.todos = [
+				      { name: 'Master HTML/CSS/Javascript', completed: true },
+				      { name: 'Learn AngularJS', completed: false },
+				      { name: 'Build NodeJS backend', completed: false },
+				      { name: 'Get started with ExpressJS', completed: false },
+				      { name: 'Setup MongoDB database', completed: false },
+				      { name: 'Be awesome!', completed: false },
+				    ];
+				  }]);
+			</script>
+		</div>
+	</div>
+</body>
+</html>
