@@ -1,13 +1,44 @@
-<!--ng-app designates that this is an angular application-->
-<html ng-app>
-	<head>
-		<title> Hello Angular! </title>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-	</head>
-	<body>
-		<div>
-			<span>Magic Text:</span><input ng-model="name"> <br/>
-			<span> Hello {{ name }} </span>
-		</div>
-	</body>
-</html>		
+
+
+    HTML Result 
+
+Edit on
+
+  
+  
+  
+<html>
+<head>
+  <title>Hello World in AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+</head>
+<body data-ng-app="app">
+	<div>
+		<input ng-model="name" placeholder="Type world..."> Hello {{name}}
+	</div>
+	
+	<br/>
+
+	<div>
+		<hello>Element</hello> Element
+		<div data-hello>Attribute</div> data-Attribute
+		<div hello>Attribute</div> Attribute
+		<!-- directive: hello --> Comment
+		<p class="hello"></p> Class
+	
+		<script>
+			var app = angular.module('app', []);
+		  
+			app.directive('hello', [function () {
+			  return {
+			    restrict: 'CEMA', // C: class, E: element, M: comments, A: attributes
+			    replace: true, // replaces original content with template
+			    template: '<span><br>Hello</span>'
+			  }
+			}]);
+		</script>
+	</div>
+
+
+</body>
+</html>
