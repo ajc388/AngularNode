@@ -1,9 +1,13 @@
+<!--ng-app designates that this is an angular application-->
 <html ng-app>
 	<head>
 		<title> Hello Angular! </title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 	</head>
 	<body>
-		<input ng-model="name"> Hello {{ name }}
+		<div>
+			<span>Magic Text:</span><input ng-model="name"> <br/>
+			<span> Hello {{ name }} </span>
+		</div>
 	</body>
 </html>		
