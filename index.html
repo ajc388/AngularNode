@@ -14,7 +14,9 @@ Edit on
 </head>
 <body data-ng-app="app">
 	<div>
-		<input ng-model="name" placeholder="Type world..."> Hello {{name}}
+		<!--Does basic data binding from the input box model-->
+		<span><input ng-model="name" placeholder="Type world..."></span>
+		<span> Hello {{name}} </span>
 	</div>
 	
 	<br/>
@@ -27,8 +29,11 @@ Edit on
 		<p class="hello"></p> Class
 	
 		<script>
+			//Looks for the corresponding ng-app module which can be found in the body tag.
 			var app = angular.module('app', []);
 		  
+		 	//looks through all directives labeled hello
+		 	//if they have a class, eleemnt, comment, or attribute directive it replaces it with the template.
 			app.directive('hello', [function () {
 			  return {
 			    restrict: 'CEMA', // C: class, E: element, M: comments, A: attributes
