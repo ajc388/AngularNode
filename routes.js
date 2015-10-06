@@ -21,7 +21,17 @@ module.exports = function (app) {
 	  res.sendFile(__dirname + "/p4.html");
 	});
 
+	app.get('/p5', function(req, res) {
+	  res.sendFile(__dirname + "/p5.html");
+	});
 
+	app.get('/p6', function(req, res) {
+	  res.sendFile(__dirname + "/p6.html");
+	});
+
+	app.get('/p7', function(req, res) {
+	  res.sendFile(__dirname + "/p7.html");
+	});
 
 	//POST Routes
 }

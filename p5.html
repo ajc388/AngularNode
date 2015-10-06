@@ -1,0 +1,50 @@
+<html ng-app="app">
+<head>
+  <title>P5: Templates and Modules</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+</head>
+<body>
+<h2>P5: Templates and Modules</h2>
+
+<ng-view></ng-view>
+  
+<!-- Template -->   
+<script type="text/ng-template" id="/todos.html">
+  <ul>
+    <li ng-repeat="todo in todos">
+      <input type="checkbox" ng-model="todo.completed">
+      {{todo.name}}
+    </li>
+  </ul>
+</script>
+
+<script>
+angular.module('app', ['ngRoute'])
+
+  .controller('TodoController', ['$scope', function ($scope) {
+    $scope.todos = [
+      { name: 'AngularJS Directives', completed: true },
+      { name: 'Data binding', completed: true },
+      { name: '$scope', completed: true },
+      { name: 'Controllers and Modules', completed: true },
+      { name: 'Templates and routes', completed: true },
+      { name: 'Filters and Services', completed: false },
+      { name: 'Get started with Node/ExpressJS', completed: false },
+      { name: 'Setup MongoDB database', completed: false },
+      { name: 'Be awesome!', completed: false },
+    ];
+  }])
+  
+  .config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: '/todos.html',
+        controller: 'TodoController'
+      });
+  }]);
+</script>
+
+</body>
+</html>
+
