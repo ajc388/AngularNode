@@ -33,5 +33,9 @@ module.exports = function (app) {
 	  res.sendFile(__dirname + "/p7.html");
 	});
 
+	app.get('/p8', function(req, res) {
+	  res.sendFile(__dirname + "/p8.html");
+	});
+
 	//POST Routes
 }
